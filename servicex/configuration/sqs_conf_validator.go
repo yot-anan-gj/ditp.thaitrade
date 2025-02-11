@@ -2,16 +2,17 @@ package configuration
 
 import (
 	"errors"
-	"gitlab.com/ditp.thaitrade/enginex/util/stringutil"
+
+	"github.com/yot-anan-gj/ditp.thaitrade/enginex/util/stringutil"
 )
 
 var (
-	ErrConfSqsContextNameIsEmpty = errors.New("sqs configuration check: context name must not be empty")
-	ErrConfSqsRegionIsEmpty = errors.New("sqs configuration check: region must not be empty")
-	ErrConfSqsQueueNameIsEmpty = errors.New("sqs configuration check: queue name must not be empty")
-	ErrConfSqsAccessKeyIDIsEmpty = errors.New("sqs configuration check: access key id must not be empty")
+	ErrConfSqsContextNameIsEmpty     = errors.New("sqs configuration check: context name must not be empty")
+	ErrConfSqsRegionIsEmpty          = errors.New("sqs configuration check: region must not be empty")
+	ErrConfSqsQueueNameIsEmpty       = errors.New("sqs configuration check: queue name must not be empty")
+	ErrConfSqsAccessKeyIDIsEmpty     = errors.New("sqs configuration check: access key id must not be empty")
 	ErrConfSqsSecretAccessKeyIsEmpty = errors.New("sqs configuration check: secret access key must not be empty")
-	ErrConfSqsDuplicateContextName = errors.New("sqs configuration check: duplicate context name")
+	ErrConfSqsDuplicateContextName   = errors.New("sqs configuration check: duplicate context name")
 )
 
 func validConfigSqs(config *Configuration) error {

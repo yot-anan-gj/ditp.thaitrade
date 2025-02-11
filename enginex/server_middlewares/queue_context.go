@@ -2,8 +2,8 @@ package server_middlewares
 
 import (
 	"github.com/labstack/echo"
-	"gitlab.com/ditp.thaitrade/enginex/queue/aws_sqs"
-	"gitlab.com/ditp.thaitrade/enginex/server_constant"
+	"github.com/yot-anan-gj/ditp.thaitrade/enginex/queue/aws_sqs"
+	"github.com/yot-anan-gj/ditp.thaitrade/enginex/server_constant"
 )
 
 func SqsContextAppender(sqss aws_sqs.AwsSqss) echo.MiddlewareFunc {

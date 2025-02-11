@@ -2,8 +2,9 @@ package configuration
 
 import (
 	"fmt"
-	"gitlab.com/ditp.thaitrade/enginex/database/nosql/aws_dynamodb"
-	"gitlab.com/ditp.thaitrade/enginex/util/cryptutil"
+
+	"github.com/yot-anan-gj/ditp.thaitrade/enginex/database/nosql/aws_dynamodb"
+	"github.com/yot-anan-gj/ditp.thaitrade/enginex/util/cryptutil"
 )
 
 type DynamoDBConfig struct {
@@ -14,8 +15,6 @@ type DynamoDBConfig struct {
 	SecretAccessKey string
 	BillingMode     string
 }
-
-
 
 func (dynamoDB DynamoDBConfig) String() string {
 	return fmt.Sprintf("ContextName: %s, "+
@@ -43,7 +42,6 @@ func (dynamoDB DynamoDBConfig) GetAwsConfiguration(secretKey string) ([]aws_dyna
 		return nil, err
 	}
 
-
 	secretAccessKey := dynamoDB.SecretAccessKey
 
 	//decrypt secretAccessKey
@@ -53,7 +51,6 @@ func (dynamoDB DynamoDBConfig) GetAwsConfiguration(secretKey string) ([]aws_dyna
 	}
 
 	options = append(options, aws_dynamodb.DynamoDBCredentialOpt(decryptAccessKeyID, decryptSecretAcessKey))
-
 
 	region := dynamoDB.Region
 	options = append(options, aws_dynamodb.DynamoDBRegionOpt(region))

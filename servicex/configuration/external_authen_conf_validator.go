@@ -3,24 +3,25 @@ package configuration
 import (
 	"errors"
 	"fmt"
-	"gitlab.com/ditp.thaitrade/enginex/util/stringutil"
 	"strings"
+
+	"github.com/yot-anan-gj/ditp.thaitrade/enginex/util/stringutil"
 )
 
 var AuthenProviders = map[string]bool{
 	FACEBOOK: true,
-	GOOGLE: true,
-	LINE: true,
-	APPLE: true,
+	GOOGLE:   true,
+	LINE:     true,
+	APPLE:    true,
 }
 
-var(
-	ErrConfExtAuthenProviderRequire = errors.New("error external authentication provider is require")
-	ErrConfExtAuthenClientIDRequire = errors.New("error external authentication client id is require")
-	ErrConfExtAuthenClientSecretRequire = errors.New("error external authentication client secret is require")
-	ErrConfExtAuthenRedirectURLRequire = errors.New("error external authentication redirect URL is require")
-	ErrorConfExtAuthenAppleTeamIDRequire = errors.New("error external authentication provider apple AppleTeamID is require")
-	ErrorConfExtAuthenAppleKeyIDRequire = errors.New("error external authentication provider apple AppleKeyID is require")
+var (
+	ErrConfExtAuthenProviderRequire          = errors.New("error external authentication provider is require")
+	ErrConfExtAuthenClientIDRequire          = errors.New("error external authentication client id is require")
+	ErrConfExtAuthenClientSecretRequire      = errors.New("error external authentication client secret is require")
+	ErrConfExtAuthenRedirectURLRequire       = errors.New("error external authentication redirect URL is require")
+	ErrorConfExtAuthenAppleTeamIDRequire     = errors.New("error external authentication provider apple AppleTeamID is require")
+	ErrorConfExtAuthenAppleKeyIDRequire      = errors.New("error external authentication provider apple AppleKeyID is require")
 	ErrorConfExtAuthenAppleCertP8FileRequire = errors.New("error external authentication provider apple AppleCertP8File is require")
 
 	ErrConfExtAuthenInvalidAuthProvider = func(provider string) error {
@@ -30,7 +31,6 @@ var(
 		return fmt.Errorf("error external authentication provider %s is duplicate", provider)
 	}
 )
-
 
 func validConfigExternalAuthen(config *Configuration) error {
 	if config == nil {
@@ -47,7 +47,7 @@ func validConfigExternalAuthen(config *Configuration) error {
 		}
 
 		providerCount[strings.ToLower(extAuth.Provider)]++
-		if providerCount[extAuth.Provider] > 1{
+		if providerCount[extAuth.Provider] > 1 {
 			return ErrConfExtAuthenDuplicateProvider(extAuth.Provider)
 		}
 
@@ -58,17 +58,17 @@ func validConfigExternalAuthen(config *Configuration) error {
 			return ErrConfExtAuthenRedirectURLRequire
 		}
 
-		if extAuth.Provider == APPLE{
-			if stringutil.IsEmptyString(extAuth.AppleTeamID){
+		if extAuth.Provider == APPLE {
+			if stringutil.IsEmptyString(extAuth.AppleTeamID) {
 				return ErrorConfExtAuthenAppleTeamIDRequire
 			}
-			if stringutil.IsEmptyString(extAuth.AppleKeyID){
+			if stringutil.IsEmptyString(extAuth.AppleKeyID) {
 				return ErrorConfExtAuthenAppleKeyIDRequire
 			}
-			if stringutil.IsEmptyString(extAuth.AppleCertP8File){
+			if stringutil.IsEmptyString(extAuth.AppleCertP8File) {
 				return ErrorConfExtAuthenAppleCertP8FileRequire
 			}
-		}else{
+		} else {
 			if stringutil.IsEmptyString(extAuth.ClientSecret) {
 				return ErrConfExtAuthenClientSecretRequire
 			}

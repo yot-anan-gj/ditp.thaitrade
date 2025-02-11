@@ -3,7 +3,8 @@ package configuration
 import (
 	"errors"
 	"fmt"
-	"gitlab.com/ditp.thaitrade/enginex/util/stringutil"
+
+	"github.com/yot-anan-gj/ditp.thaitrade/enginex/util/stringutil"
 )
 
 var (
@@ -86,4 +87,3 @@ func validEmailServersConfig(config *Configuration) error {
 
 	return nil
 }
-

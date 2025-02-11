@@ -3,7 +3,8 @@ package configuration
 import (
 	"errors"
 	"fmt"
-	"gitlab.com/ditp.thaitrade/enginex/util/stringutil"
+
+	"github.com/yot-anan-gj/ditp.thaitrade/enginex/util/stringutil"
 )
 
 var (
@@ -14,22 +15,20 @@ var (
 	}
 )
 
-
 func validConfigRedisCache(config *Configuration) error {
 	if config == nil {
 		return ErrorInvalidConfig
 	}
 
 	cacheNameCount := make(map[string]int)
-	for _, redisCache := range config.RedisCaches{
-		if stringutil.IsEmptyString(redisCache.CacheName){
+	for _, redisCache := range config.RedisCaches {
+		if stringutil.IsEmptyString(redisCache.CacheName) {
 			return ErrorConfRedisCacheNameReq
 		}
 		cacheNameCount[redisCache.CacheName]++
-		if cacheNameCount[redisCache.CacheName] > 1{
+		if cacheNameCount[redisCache.CacheName] > 1 {
 			return ErrConfWebApiSessionRedisSessionNameDup(redisCache.CacheName)
 		}
 	}
 	return nil
 }
-

@@ -3,7 +3,7 @@ package session
 import (
 	"github.com/gomodule/redigo/redis"
 	"github.com/gorilla/sessions"
-	"gitlab.com/ditp.thaitrade/enginex/redisstore"
+	"github.com/yot-anan-gj/ditp.thaitrade/enginex/redisstore"
 )
 
 type RedisStore interface {
@@ -105,7 +105,8 @@ func (c *redisStore) Options(options Options) {
 // both in database and a browser. This is to change session storage configuration.
 // If you want just to remove session use your session `s` object and change it's
 // `Options.MaxAge` to -1, as specified in
-//    http://godoc.org/github.com/gorilla/sessions#Options
+//
+//	http://godoc.org/github.com/gorilla/sessions#Options
 //
 // Default is the one provided by github.com/boj/redistore package value - `sessionExpire`.
 // Set it to 0 for no restriction.

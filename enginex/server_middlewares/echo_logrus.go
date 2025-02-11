@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/labstack/echo"
-	"gitlab.com/ditp.thaitrade/enginex/echo_logrus"
+	"github.com/yot-anan-gj/ditp.thaitrade/enginex/echo_logrus"
 )
 
 // Logger returns a middleware that logs HTTP requests.

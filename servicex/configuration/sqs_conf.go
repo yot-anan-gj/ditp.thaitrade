@@ -2,10 +2,10 @@ package configuration
 
 import (
 	"fmt"
-	"gitlab.com/ditp.thaitrade/enginex/queue/aws_sqs"
-	"gitlab.com/ditp.thaitrade/enginex/util/cryptutil"
-)
 
+	"github.com/yot-anan-gj/ditp.thaitrade/enginex/queue/aws_sqs"
+	"github.com/yot-anan-gj/ditp.thaitrade/enginex/util/cryptutil"
+)
 
 type SqsConfig struct {
 	ContextName            string
@@ -18,15 +18,14 @@ type SqsConfig struct {
 	SecretAccessKey        string
 }
 
-
 func (sqs SqsConfig) String() string {
-	return fmt.Sprintf("ContextName: %s, " +
-		"Region: %s, " +
-		"QueueName: %s, " +
-		"DelaySeconds: %s, " +
-		"MessageRetentionPeriod: %s, " +
-		"FifoQueue: %s, " +
-		"AccessKeyID: %s, " +
+	return fmt.Sprintf("ContextName: %s, "+
+		"Region: %s, "+
+		"QueueName: %s, "+
+		"DelaySeconds: %s, "+
+		"MessageRetentionPeriod: %s, "+
+		"FifoQueue: %s, "+
+		"AccessKeyID: %s, "+
 		"SecretAccessKey: %s",
 		sqs.ContextName,
 		sqs.Region,
@@ -49,7 +48,6 @@ func (sqs SqsConfig) GetAwsConfiguration(secretKey string) ([]aws_sqs.SqsOptions
 		return nil, err
 	}
 
-
 	secretAccessKey := sqs.SecretAccessKey
 
 	//decrypt secretAccessKey
@@ -57,7 +55,6 @@ func (sqs SqsConfig) GetAwsConfiguration(secretKey string) ([]aws_sqs.SqsOptions
 	if err != nil {
 		return nil, err
 	}
-
 
 	options = append(options, aws_sqs.SqsCredentialOpt(decryptAccessKeyID, decryptSecretAcessKey))
 

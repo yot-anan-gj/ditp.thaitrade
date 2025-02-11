@@ -3,14 +3,15 @@ package configuration
 import (
 	"errors"
 	"fmt"
-	"gitlab.com/ditp.thaitrade/enginex/util/stringutil"
+
+	"github.com/yot-anan-gj/ditp.thaitrade/enginex/util/stringutil"
 )
 
 var DBProviders = map[string]bool{
 	//POSTGRES_AWS:        true,
 	//POSTGRES_GCP:        true,
 	POSTGRES_ON_PREMISE: true,
-	MYSQL_ON_PREMISE: true,
+	MYSQL_ON_PREMISE:    true,
 }
 
 var (
@@ -38,8 +39,6 @@ var (
 	ErrConfDBDatabaseNameRequire = func(contextName string) error {
 		return fmt.Errorf("error database configuration password at database name %s is require", contextName)
 	}
-
-
 )
 
 func validConfigDB(config *Configuration) error {
@@ -72,4 +71,3 @@ func validConfigDB(config *Configuration) error {
 	}
 	return nil
 }
-

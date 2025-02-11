@@ -2,9 +2,10 @@ package server_middlewares
 
 import (
 	"errors"
+
 	"github.com/labstack/echo"
-	"gitlab.com/ditp.thaitrade/enginex/session"
-	"gitlab.com/ditp.thaitrade/enginex/util/uuid"
+	"github.com/yot-anan-gj/ditp.thaitrade/enginex/session"
+	"github.com/yot-anan-gj/ditp.thaitrade/enginex/util/uuid"
 )
 
 var (
@@ -25,7 +26,7 @@ func UUIDGenerator(stores session.Stores) echo.MiddlewareFunc {
 						//save to session
 						session.Set("uuid", id)
 						session.Save()
-					}else{
+					} else {
 						//for retain session
 						session.Set("uuid", id)
 						session.Save()

@@ -2,18 +2,19 @@ package configuration
 
 import (
 	"fmt"
+	"os"
+	"time"
+
 	echoLog "github.com/labstack/gommon/log"
 	"github.com/shiena/ansicolor"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
-	log "gitlab.com/ditp.thaitrade/enginex/echo_logrus"
-	"gitlab.com/ditp.thaitrade/enginex/util/cryptutil"
-	"gitlab.com/ditp.thaitrade/enginex/util/stringutil"
-	"os"
-	"time"
+	log "github.com/yot-anan-gj/ditp.thaitrade/enginex/echo_logrus"
+	"github.com/yot-anan-gj/ditp.thaitrade/enginex/util/cryptutil"
+	"github.com/yot-anan-gj/ditp.thaitrade/enginex/util/stringutil"
 )
 
-//configurationReader : reading configuration file
+// configurationReader : reading configuration file
 func read() (*Configuration, error) {
 	vp := viper.New()
 	vp.AutomaticEnv()
@@ -92,7 +93,7 @@ func read() (*Configuration, error) {
 	//decrypt smtp server users & password
 	for i := 0; i < len(config.EmailServers.SMTPs); i++ {
 		encryptUser := config.EmailServers.SMTPs[i].User
-		encryptPassword:= config.EmailServers.SMTPs[i].Password
+		encryptPassword := config.EmailServers.SMTPs[i].Password
 
 		var decryptUsr string
 		if stringutil.IsNotEmptyString(encryptUser) {
@@ -120,7 +121,7 @@ func read() (*Configuration, error) {
 	//decrypt awsses secret users & password
 	for i := 0; i < len(config.EmailServers.AWSSES); i++ {
 		accessKeyID := config.EmailServers.AWSSES[i].AWSAccessKeyID
-		secretAccessKey:= config.EmailServers.AWSSES[i].AWSSecretAccessKey
+		secretAccessKey := config.EmailServers.AWSSES[i].AWSSecretAccessKey
 
 		decryptAccessKey, err := cryptutil.DecryptString(accessKeyID, secretKey)
 		if err != nil {

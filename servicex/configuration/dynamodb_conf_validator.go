@@ -2,16 +2,17 @@ package configuration
 
 import (
 	"errors"
-	"gitlab.com/ditp.thaitrade/enginex/util/stringutil"
+
+	"github.com/yot-anan-gj/ditp.thaitrade/enginex/util/stringutil"
 )
 
 var (
-	ErrConfDynamoContextNameIsEmpty = errors.New("dynamoDB configuration check: context name must not be empty")
-	ErrConfDynamoRegionIsEmpty = errors.New("dynamoDB configuration check: region must not be empty")
-	ErrConfDynamoTableNameIsEmpty = errors.New("dynamoDB configuration check: table name must not be empty")
-	ErrConfDynamoAccessKeyIDIsEmpty = errors.New("dynamoDB configuration check: access key id must not be empty")
+	ErrConfDynamoContextNameIsEmpty     = errors.New("dynamoDB configuration check: context name must not be empty")
+	ErrConfDynamoRegionIsEmpty          = errors.New("dynamoDB configuration check: region must not be empty")
+	ErrConfDynamoTableNameIsEmpty       = errors.New("dynamoDB configuration check: table name must not be empty")
+	ErrConfDynamoAccessKeyIDIsEmpty     = errors.New("dynamoDB configuration check: access key id must not be empty")
 	ErrConfDynamoSecretAccessKeyIsEmpty = errors.New("dynamoDB configuration check: secret access key must not be empty")
-	ErrConfDynamoDuplicateContextName = errors.New("dynamoDB configuration check: duplicate context name")
+	ErrConfDynamoDuplicateContextName   = errors.New("dynamoDB configuration check: duplicate context name")
 )
 
 func validConfigDynamoDB(config *Configuration) error {
@@ -43,5 +44,3 @@ func validConfigDynamoDB(config *Configuration) error {
 	}
 	return nil
 }
-
-

@@ -2,11 +2,11 @@ package server
 
 import (
 	"github.com/labstack/echo"
-	"gitlab.com/ditp.thaitrade/enginex/database"
-	"gitlab.com/ditp.thaitrade/enginex/database/nosql/aws_dynamodb"
-	"gitlab.com/ditp.thaitrade/enginex/queue/aws_sqs"
-	"gitlab.com/ditp.thaitrade/enginex/redisstore"
-	"gitlab.com/ditp.thaitrade/enginex/session"
+	"github.com/yot-anan-gj/ditp.thaitrade/enginex/database"
+	"github.com/yot-anan-gj/ditp.thaitrade/enginex/database/nosql/aws_dynamodb"
+	"github.com/yot-anan-gj/ditp.thaitrade/enginex/queue/aws_sqs"
+	"github.com/yot-anan-gj/ditp.thaitrade/enginex/redisstore"
+	"github.com/yot-anan-gj/ditp.thaitrade/enginex/session"
 	"google.golang.org/grpc"
 )
 

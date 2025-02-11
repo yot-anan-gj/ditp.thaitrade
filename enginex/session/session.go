@@ -1,18 +1,18 @@
 package session
 
 import (
-	log "gitlab.com/ditp.thaitrade/enginex/echo_logrus"
+	log "github.com/yot-anan-gj/ditp.thaitrade/enginex/echo_logrus"
+
+	"net/http"
 
 	"github.com/gorilla/context"
 	"github.com/gorilla/sessions"
 	"github.com/labstack/echo"
-	"net/http"
 )
 
 const (
 	errorFormat = "[sessions] ERROR! %s\n"
 )
-
 
 type Stores map[string]Store
 
@@ -156,4 +156,3 @@ func GET(name string, ctx echo.Context) Session {
 	}
 	return ctx.Get(name).(Session)
 }
-

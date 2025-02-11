@@ -3,13 +3,14 @@ package aws_sqs
 import (
 	"errors"
 	"fmt"
+	"time"
+
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/credentials"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/sqs"
-	log "gitlab.com/ditp.thaitrade/enginex/echo_logrus"
-	"gitlab.com/ditp.thaitrade/enginex/util/stringutil"
-	"time"
+	log "github.com/yot-anan-gj/ditp.thaitrade/enginex/echo_logrus"
+	"github.com/yot-anan-gj/ditp.thaitrade/enginex/util/stringutil"
 )
 
 var sqsValidators = []SqsValidator{
