@@ -47,6 +47,9 @@ func read() (*Configuration, error) {
 		}
 	}
 
+	// print out configuration
+	log.Logger().Infof("Configuration: %+v", config)
+
 	if config.GracefulShutdownAPITimeout < 10 {
 		config.GracefulShutdownAPITimeout = 10
 	} else if config.GracefulShutdownAPITimeout > 60 {
