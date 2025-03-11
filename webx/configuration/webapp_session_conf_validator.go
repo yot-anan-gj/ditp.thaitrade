@@ -3,7 +3,7 @@ package configuration
 import (
 	"fmt"
 	"github.com/pkg/errors"
-	"gitlab.com/ditp.thaitrade/enginex/util/stringutil"
+	"github.com/yot-anan-gj/ditp.thaitrade/enginex/util/stringutil"
 )
 
 var (
